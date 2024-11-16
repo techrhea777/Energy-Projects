@@ -1,88 +1,79 @@
-# Energy-Projects
+Borough-Level Energy Demand Forecasting and Trend Analysis
+Overview
+This project explores and forecasts energy consumption trends across boroughs in London using the LEGGI dataset. The analysis leverages statistical techniques like OLS regression, autocorrelation analysis, and time-series forecasting (ARIMA) to uncover actionable insights and predict future energy demand.
 
-Energy Consumption Forecasting for Westminster Domestic Sector
-
-Project Overview
-
-This project analyzes and forecasts energy consumption trends for the Westminster Domestic Sector using statistical and time-series techniques. By leveraging the LEGGI Dataset, the project provides actionable insights into historical energy usage patterns and future consumption forecasts, which can support strategic energy planning and decision-making.
-
-Project Objectives
-Analyze Borough-Level Energy Trends:
-
-Explore how energy consumption varies across sectors and fuel types in Westminster and other boroughs.
-Visualize energy usage patterns over time to identify key trends.
-Perform Autocorrelation Analysis:
-
-Examine the relationship between current and past energy consumption values to identify trends, seasonality, and lagged dependencies.
-Forecast Energy Demand:
-
-Build predictive models using OLS regression and ARIMA to forecast future energy consumption in Westminster's Domestic Sector.
-Provide Data-Driven Insights:
-
-Highlight key drivers of energy consumption and predict trends for the next 5 years.
-Dataset Used
-The project utilizes the London Energy and Greenhouse Gas Inventory (LEGGI) Dataset, which includes:
+Objectives
+Analyze Historical Trends:
+Explore energy consumption patterns by sector, fuel type, and borough.
+Identify Key Drivers:
+Use statistical modeling to evaluate the impact of variables (e.g., temperature, sector, fuel) on energy demand.
+Forecast Energy Consumption:
+Predict future energy usage trends using advanced time-series techniques.
+Provide Actionable Insights:
+Deliver insights to support strategic energy planning and decision-making.
+Dataset
+The project uses the London Energy and Greenhouse Gas Inventory (LEGGI) dataset:
 
 Columns:
 Area: Borough name (e.g., Westminster, Camden).
-LEGGI_Year: Year of energy consumption data.
-Sector: Energy usage sector (e.g., Domestic, Industrial and Commercial, Transport).
-Fuel: Type of fuel used (e.g., Gas, Electricity, Oil).
-kWh: Total energy consumption in kilowatt-hours.
-Methodology
-The project is divided into three main steps:
-
+LEGGI_Year: Year of the recorded energy consumption.
+Sector: Sector classification (e.g., Domestic, Industrial and Commercial, Transport).
+Fuel: Type of fuel used (e.g., Gas, Electricity).
+kWh: Energy consumption in kilowatt-hours.
+Features
 1. Exploratory Data Analysis (EDA)
 Purpose:
-Understand historical trends in energy consumption.
-Identify boroughs, sectors, and fuel types with the highest energy usage.
-Visualizations:
-Heatmaps to compare energy usage by sector and area.
-Line plots showing trends in energy consumption over time.
-
-2. Autocorrelation Analysis
+Analyze borough-level energy usage trends.
+Visualize data using heatmaps and line plots.
+Methods:
+Aggregated energy consumption by year, sector, and fuel type.
+Created heatmaps to compare energy usage across boroughs and sectors.
+Key Visualizations:
+Energy consumption trends by sector and fuel type.
+Heatmap of energy usage by borough and sector.
+2. OLS Regression
 Purpose:
-Detect relationships between energy consumption values at different time lags (e.g., whether the current year’s usage depends on the previous year).
-Method:
-Use the autocorrelation function (ACF) to identify significant lags and seasonal patterns in the Westminster Domestic sector.
-
-3. Energy Demand Forecasting
-OLS Regression:
-Quantify the impact of variables like Sector, Fuel, and Year on energy consumption.
-Identify key drivers of energy demand.
-ARIMA Time-Series Forecasting:
-Build a predictive model to forecast Westminster Domestic energy consumption for the next 5 years.
-
-Key Features
-Data Analysis:
-Aggregates and visualizes energy consumption trends by borough, sector, and fuel type.
-Statistical Insights:
-Performs autocorrelation to identify trends and dependencies.
-Uses OLS regression to evaluate the contribution of different variables.
-Predictive Modeling:
-Builds time-series models to forecast future energy demand.
-Provides actionable insights for energy policy and planning.
-
+Quantify the impact of key variables on energy demand.
+Steps:
+Prepared data by handling missing values, outliers, and multicollinearity.
+Encoded categorical variables (sector, fuel type) for regression.
+Key Outputs:
+Identified significant variables like temperature and sector in predicting energy demand.
+3. Autocorrelation Analysis
+Purpose:
+Detect temporal dependencies and seasonality in energy consumption.
+Methods:
+Used autocorrelation functions (ACF) to identify lag dependencies.
+Incorporated lagged variables into forecasting models.
+4. Time-Series Forecasting
+Purpose:
+Predict future energy consumption trends.
+Model:
+Built and validated an ARIMA model to forecast energy demand for Westminster’s Domestic sector.
+Key Findings:
+Predicted a decline in gas usage, driven by efficiency improvements and renewable integration.
+Challenges and Solutions
+Data Cleaning:
+Challenge: Missing and extreme values distorted results.
+Solution: Applied forward-filling and log transformations to stabilize the dataset.
+Multicollinearity:
+Challenge: Strong correlations between predictors caused instability in regression models.
+Solution: Used eigenvalue analysis to detect and remove redundant variables.
+Autocorrelation:
+Challenge: Residuals showed temporal dependencies.
+Solution: Included lagged variables to improve model accuracy.
 Results
-Borough-Level Energy Insights:
-
-Westminster has higher energy consumption in the Domestic Sector compared to other boroughs.
-Gas is the dominant fuel type, showing a steady decline in usage over recent years.
-Autocorrelation Analysis:
-
-Significant autocorrelation at lag 1 indicates that the previous year's energy consumption strongly influences the current year's usage.
-Insights suggest the inclusion of lagged variables in forecasting models.
-Forecasting:
-
-Forecasts predict a gradual decline in Domestic energy consumption for Westminster over the next 5 years.
-This trend aligns with a shift toward energy efficiency and renewable sources.
-
+Insights:
+Temperature strongly influences energy demand, especially in heating and cooling sectors.
+Gas consumption is steadily declining, while electricity usage is stable or rising.
+Forecasts:
+Predicted a gradual reduction in Domestic energy demand for Westminster over the next five years.
 Visualizations
-Energy Consumption Heatmap:
-Highlights energy usage by borough and sector.
-
-Autocorrelation Plot:
-Displays significant lag relationships in energy consumption data.
-
-Forecasting Plot:
-Compares actual and predicted energy consumption over time.
+Energy Consumption Trends: Line plots showing sector-wise and fuel-wise trends over time.
+Heatmaps: Highlighting energy usage patterns across boroughs and sectors.
+Forecasts: Visual comparison of actual vs. predicted energy demand.
+Technologies Used
+Python Libraries:
+pandas: Data manipulation and cleaning.
+matplotlib & seaborn: Data visualization.
+statsmodels: Statistical modeling and time-series analysis.
